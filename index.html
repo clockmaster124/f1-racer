@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nilxuu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    background:
+    radial-gradient(circle at top,
+    #ff7aa2 0%,
+    #ff7b00 22%,
+    #d1004f 50%,
+    #420014 100%);
+}
+
+/* DARK OVERLAY */
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle,
+    transparent 35%,
+    rgba(0,0,0,.4) 100%);
+
+    z-index:0;
+}
+
+/* GIANT GLOW */
+
+.bg-glow{
+    position:absolute;
+    width:1700px;
+    height:1700px;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,.12),
+    rgba(255,215,0,.12),
+    transparent 70%);
+
+    animation:bgpulse 10s ease-in-out infinite;
+}
+
+@keyframes bgpulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.18);
+    }
+}
+
+/* STARS */
+
+.stars{
+    position:absolute;
+    inset:0;
+}
+
+.star{
+    position:absolute;
+    border-radius:50%;
+    background:white;
+
+    box-shadow:
+    0 0 10px white,
+    0 0 20px gold;
+
+    animation:
+    twinkle 2s infinite alternate,
+    drift 8s linear infinite;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+        transform:scale(1);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(2.2);
+    }
+}
+
+@keyframes drift{
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(-50px);
+    }
+}
+
+/* SHOOTING STARS */
+
+.shooting-star{
+
+    position:absolute;
+
+    width:220px;
+    height:3px;
+
+    background:
+    linear-gradient(to right,
+    white,
+    transparent);
+
+    border-radius:50%;
+
+    opacity:.8;
+
+    transform:rotate(-25deg);
+
+    animation:shoot 7s linear infinite;
+}
+
+.s1{
+    top:10%;
+    left:-20%;
+}
+
+.s2{
+    top:35%;
+    left:-30%;
+    animation-delay:3s;
+}
+
+@keyframes shoot{
+
+    0%{
+        transform:
+        translateX(0)
+        translateY(0)
+        rotate(-25deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    40%{
+        opacity:0;
+    }
+
+    100%{
+        transform:
+        translateX(180vw)
+        translateY(50vh)
+        rotate(-25deg);
+
+        opacity:0;
+    }
+}
+
+/* BALLOONS */
+
+.balloons{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.balloon{
+
+    position:absolute;
+
+    bottom:-200px;
+
+    border-radius:50%;
+
+    animation:floatUp linear infinite;
+
+    box-shadow:
+    inset -8px -10px 20px rgba(0,0,0,.15),
+    0 0 30px rgba(255,255,255,.55);
+}
+
+.balloon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:2px;
+    height:100px;
+
+    background:rgba(255,255,255,.45);
+
+    left:50%;
+    top:100%;
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:
+        translateY(0)
+        rotate(-7deg);
+    }
+
+    50%{
+        transform:
+        translateX(40px)
+        rotate(7deg);
+    }
+
+    to{
+        transform:
+        translateY(-160vh)
+        rotate(-7deg);
+    }
+}
+
+/* CONFETTI */
+
+.confetti{
+
+    position:absolute;
+
+    opacity:.9;
+
+    animation:confettiFall linear infinite;
+}
+
+@keyframes confettiFall{
+
+    from{
+        transform:
+        translateY(-10vh)
+        rotate(0deg);
+    }
+
+    to{
+        transform:
+        translateY(120vh)
+        rotate(720deg);
+    }
+}
+
+/* GLOW ORBS */
+
+.orb{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(10px);
+
+    opacity:.5;
+
+    animation:orbMove 10s ease-in-out infinite;
+}
+
+@keyframes orbMove{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-50px);
+    }
+}
+
+/* MAIN POSTER */
+
+.poster{
+
+    position:relative;
+
+    width:min(82vw,760px);
+    height:min(48vh,330px);
+
+    border-radius:40px;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+    rgba(0,0,0,.22);
+
+    backdrop-filter:blur(16px);
+
+    border:2px solid rgba(255,255,255,.12);
+
+    box-shadow:
+    0 0 50px rgba(255,0,90,.35),
+    0 0 100px rgba(255,215,0,.22);
+
+    animation:
+    posterFloat 6s ease-in-out infinite,
+    posterGlow 3s infinite alternate;
+
+    z-index:10;
+}
+
+/* GOLD BORDER */
+
+.poster::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:40px;
+
+    border:3px solid rgba(255,215,0,.35);
+
+    box-shadow:
+    0 0 25px rgba(255,215,0,.4),
+    0 0 60px rgba(255,0,60,.25),
+    inset 0 0 30px rgba(255,0,60,.18);
+}
+
+.poster::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:6px;
+
+    border-radius:32px;
+
+    background:
+    linear-gradient(to bottom right,
+    rgba(255,0,80,.16),
+    rgba(255,255,255,.02));
+}
+
+@keyframes posterFloat{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-14px);
+    }
+}
+
+@keyframes posterGlow{
+
+    from{
+        box-shadow:
+        0 0 40px rgba(255,0,80,.25),
+        0 0 70px rgba(255,215,0,.18);
+    }
+
+    to{
+        box-shadow:
+        0 0 80px rgba(255,0,80,.45),
+        0 0 140px rgba(255,215,0,.35);
+    }
+}
+
+/* CONTENT */
+
+.content{
+    position:relative;
+    z-index:5;
+    padding:25px;
+}
+
+/* TITLE */
+
+.title{
+
+    font-size:clamp(2.2rem,5vw,5.3rem);
+
+    font-weight:900;
+
+    line-height:1.08;
+
+    color:white;
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    text-shadow:
+    0 0 15px #ff004c,
+    0 0 40px gold,
+    0 0 80px white;
+
+    animation:
+    glow 2s infinite alternate,
+    floatingText 4s ease-in-out infinite,
+    shimmer 5s linear infinite;
+}
+
+@keyframes glow{
+
+    from{
+        text-shadow:
+        0 0 15px #ff004c,
+        0 0 35px gold;
+    }
+
+    to{
+        text-shadow:
+        0 0 30px #ff004c,
+        0 0 70px gold,
+        0 0 100px white;
+    }
+}
+
+@keyframes floatingText{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+@keyframes shimmer{
+
+    0%{
+        filter:hue-rotate(0deg);
+    }
+
+    100%{
+        filter:hue-rotate(15deg);
+    }
+}
+
+/* SUBTITLE */
+
+.subtitle{
+
+    margin-top:18px;
+
+    font-size:1rem;
+
+    letter-spacing:4px;
+
+    color:#ffe8c2;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.5);
+
+    animation:fade 3s infinite alternate;
+}
+
+@keyframes fade{
+
+    from{
+        opacity:.6;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+/* CROWN */
+
+.crown{
+
+    position:absolute;
+
+    top:22px;
+
+    font-size:2.2rem;
+
+    animation:crownFloat 3s ease-in-out infinite;
+}
+
+@keyframes crownFloat{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .poster{
+        width:90vw;
+        height:40vh;
+    }
+
+    .title{
+        letter-spacing:2px;
+    }
+
+    .subtitle{
+        font-size:.8rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- SHOOTING STARS -->
+
+<div class="shooting-star s1"></div>
+<div class="shooting-star s2"></div>
+
+<!-- ORBS -->
+
+<div class="orb" style="width:200px;height:200px;background:#ff004c;top:10%;left:5%;"></div>
+<div class="orb" style="width:160px;height:160px;background:gold;bottom:10%;right:8%;animation-delay:2s;"></div>
+
+<!-- STARS -->
+
+<div class="stars" id="stars"></div>
+
+<!-- BALLOONS -->
+
+<div class="balloons" id="balloons"></div>
+
+<!-- MAIN POSTER -->
+
+<div class="poster">
+
+    <div class="crown">👑</div>
+
+    <div class="content">
+
+        <div class="title">
+            HAPPY BIRTHDAY<br>
+            NILXUU
+        </div>
+
+        <div class="subtitle">
+            ✦ HAVE AN ICONIC 18TH BIRTHDAY ✦
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* STARS */
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<180;i++){
+
+    const star = document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left = Math.random()*100 + "vw";
+    star.style.top = Math.random()*100 + "vh";
+
+    const size = Math.random()*4 + 2;
+
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    star.style.animationDuration =
+    (Math.random()*3+2)+"s";
+
+    star.style.animationDelay =
+    (Math.random()*5)+"s";
+
+    stars.appendChild(star);
+}
+
+/* 15 BALLOON COLORS */
+
+const colors = [
+"#ff004c",
+"#ff7b00",
+"#ffd700",
+"#00e1ff",
+"#00ff88",
+"#ff1493",
+"#ffffff",
+"#4d79ff",
+"#ff3c00",
+"#9b00ff",
+"#00ffd0",
+"#ff66cc",
+"#ffcc00",
+"#66ff66",
+"#ff4444"
+];
+
+const balloons = document.getElementById("balloons");
+
+/* CREATE BALLOONS */
+
+function createBalloon(){
+
+    const balloon = document.createElement("div");
+
+    balloon.classList.add("balloon");
+
+    const size = Math.random()*50 + 45;
+
+    balloon.style.width = size + "px";
+    balloon.style.height = size*1.25 + "px";
+
+    balloon.style.left =
+    Math.random()*100 + "vw";
+
+    balloon.style.animationDuration =
+    (Math.random()*8+8)+"s";
+
+    const color =
+    colors[Math.floor(Math.random()*colors.length)];
+
+    balloon.style.background = `
+    radial-gradient(circle at 30% 30%,
+    rgba(255,255,255,.95),
+    ${color})
+    `;
+
+    balloons.appendChild(balloon);
+
+    setTimeout(()=>{
+        balloon.remove();
+    },18000);
+}
+
+/* MANY BALLOONS */
+
+setInterval(createBalloon,250);
+
+for(let i=0;i<40;i++){
+
+    setTimeout(createBalloon,i*150);
+}
+
+/* CONFETTI */
+
+for(let i=0;i<120;i++){
+
+    const confetti =
+    document.createElement("div");
+
+    confetti.classList.add("confetti");
+
+    confetti.style.left =
+    Math.random()*100 + "vw";
+
+    confetti.style.top =
+    Math.random()*-120 + "vh";
+
+    confetti.style.background =
+    colors[Math.floor(Math.random()*colors.length)];
+
+    confetti.style.width =
+    (Math.random()*10+6)+"px";
+
+    confetti.style.height =
+    (Math.random()*18+6)+"px";
+
+    confetti.style.borderRadius =
+    Math.random()>.5 ? "50%" : "2px";
+
+    confetti.style.animationDuration =
+    (Math.random()*7+5)+"s";
+
+    confetti.style.animationDelay =
+    (Math.random()*5)+"s";
+
+    document.body.appendChild(confetti);
+}
+
+</script>
+
+</body>
+</html>
